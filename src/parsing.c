@@ -78,22 +78,21 @@ int	validate_args(int argc, char **argv, t_app *app)
 	double	re;
 	double	im;
 
-	if (argc != 2 && argc != 4)
-		return (0);
-	if (!ft_strcmp(argv[1], "julia")
-		&& !ft_strcmp(argv[1], "mandelbrot"))
-		return (0);
-	if (argc == 2)
+	if (argc == 2 && ft_strcmp(argv[1], "mandelbrot") == 0)
 	{
-		if (!ft_strcmp(argv[1], "mandelbrot"))
-			return (0);
 		app->fractal.type = MANDELBROT;
 		return (1);
 	}
-	if (!parse_double(argv[2], &re) || !parse_double(argv[3], &im))
-		return (0);
-	app->fractal.type = JULIA;
-	app->fractal.julia_k.re = re;
-	app->fractal.julia_k.im = im;
-	return (1);
+	if (argc == 4 && ft_strcmp(argv[1], "julia") == 0)
+	{
+		if (!parse_double(argv[2], &re)
+			|| !parse_double(argv[3], &im))
+			return (0);
+		app->fractal.type = JULIA;
+		app->fractal.julia_k.re = re;
+		app->fractal.julia_k.im = im;
+		return (1);
+	}
+	return (0);
 }
+

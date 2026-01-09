@@ -16,10 +16,16 @@ void	put_pixel(t_img *img, int x, int y, int color)
 
 int	color_from_iter(int i, int max)
 {
-	int	t;
+	static const int	pal[] = {
+		0x421E0F, 0x19071A, 0x09012F, 0x040449,
+		0x000764, 0x0C2C8A, 0x1852B1, 0x397DD1,
+		0x86B5E5, 0xD3ECF8, 0xF1E9BF, 0xF8C95F,
+		0xFFAA00, 0xCC8000, 0x995700, 0x6A3403
+	};
+	int				idx;
 
 	if (i >= max)
 		return (0x000000);
-	t = (i * 255) / max;
-	return ((t << 16) | ((255 - t) << 8) | t);
+	idx = i % (int)(sizeof(pal) / sizeof(pal[0]));
+	return (pal[idx]);
 }
