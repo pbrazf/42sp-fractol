@@ -61,7 +61,6 @@ typedef struct s_app
 	t_fractal	fractal;
 }	t_app;
 
-
 /* utils */
 int	exit_error();
 int	ft_strcmp(char *str1, char *str2);
@@ -91,9 +90,16 @@ void	put_pixel(t_img *img, int x, int y, int color);
 int		color_from_iter(int i, int max);
 
 /* render */
-void	render(t_app *app);
+void		render(t_app *app);
+// int		present(t_app *app);
 
 /* events */
 int		init_hooks(t_app *app);
+
+/* zoom */
+int			on_mouse(int button, int x, int y, t_app *app);
+void		apply_zoom(t_app *app, t_complex center, double factor);
+int			redraw(t_app *app);
+void		apply_zoom(t_app *app, t_complex center, double factor);
 
 #endif

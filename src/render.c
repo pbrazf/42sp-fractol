@@ -26,8 +26,22 @@ static void	draw_fractal(t_app *app)
 	}
 }
 
-void	render(t_app *app)
+int	redraw(t_app *app)
 {
 	draw_fractal(app);
 	mlx_put_image_to_window(app->mlx, app->win, app->img.img, 0, 0);
+	return (0);
+}
+
+void	apply_zoom(t_app *app, t_complex center, double factor)
+{
+	double	w;
+	double	h;
+
+	w = (app->view.max_re - app->view.min_re) * factor;
+	h = (app->view.max_im - app->view.min_im) * factor;
+	app->view.min_re = center.re - (w / 2.0);
+	app->view.max_re = center.re + (w / 2.0);
+	app->view.min_im = center.im - (h / 2.0);
+	app->view.max_im = center.im + (h / 2.0);
 }
