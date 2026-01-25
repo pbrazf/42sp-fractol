@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hooks.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedrferr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/25 13:14:20 by pedrferr          #+#    #+#             */
+/*   Updated: 2026/01/25 13:14:21 by pedrferr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static int	on_destroy(t_app *app)
@@ -35,7 +47,7 @@ int	on_mouse(int button, int x, int y, t_app *app)
 	center.re = (app->view.min_re + app->view.max_re) / 2.0;
 	center.im = (app->view.min_im + app->view.max_im) / 2.0;
 	apply_zoom(app, center, factor);
-	app->render_iter = 60; // se ficar pesado ainda, abaixa para 60. Se ficar “feio demais”, sobe para 120.
+	app->render_iter = 60;
 	if (app->render_iter > app->fractal.max_iter)
 		app->render_iter = app->fractal.max_iter;
 	app->refine = 0;

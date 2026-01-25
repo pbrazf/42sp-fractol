@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedrferr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/25 13:12:45 by pedrferr          #+#    #+#             */
+/*   Updated: 2026/01/25 13:12:48 by pedrferr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static int	init_window(t_app *app)
@@ -28,14 +40,12 @@ void	app_set_defaults(t_app *app)
 {
 	app->img.width = WIDTH;
 	app->img.height = HEIGHT;
-	// app->fractal.max_iter = 80;
 	app->view.min_re = -2.0;
 	app->view.max_re = 1.0;
 	app->view.min_im = -1.5;
 	app->view.max_im = 1.5;
-
-	app->fractal.max_iter = 200;     /* exemplo de qualidade final */
-	app->render_iter = 80;           /* preview rápido */
+	app->fractal.max_iter = 200;
+	app->render_iter = 80;
 	app->refine = 0;
 	app->needs_redraw = 1;
 }

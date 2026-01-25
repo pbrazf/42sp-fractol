@@ -1,21 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedrferr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/25 13:13:35 by pedrferr          #+#    #+#             */
+/*   Updated: 2026/01/25 13:13:38 by pedrferr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
-
-/*
-c
-- ponto fixo
-- veio do pixel
-- não muda
-
-z
-- estado atual do cálculo
-- é um t_complex
-- começa em (0, 0)
-
-i
-- contador de iterações
-- começa em 0
-- incrementa a cada loop
-*/
 
 int	mandelbrot_iter(t_complex c, int max_iter)
 {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   image.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedrferr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/25 13:12:35 by pedrferr          #+#    #+#             */
+/*   Updated: 2026/01/25 13:12:36 by pedrferr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	put_pixel(t_img *img, int x, int y, int color)
@@ -22,7 +34,7 @@ int	color_from_iter(int i, int max)
 		0x86B5E5, 0xD3ECF8, 0xF1E9BF, 0xF8C95F,
 		0xFFAA00, 0xCC8000, 0x995700, 0x6A3403
 	};
-	int				idx;
+	int					idx;
 
 	if (i >= max)
 		return (0x000000);

@@ -95,4 +95,3 @@ int	validate_args(int argc, char **argv, t_app *app)
 	}
 	return (0);
 }
-

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedrferr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/25 13:14:50 by pedrferr          #+#    #+#             */
+/*   Updated: 2026/01/25 13:14:51 by pedrferr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -5,10 +17,10 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-# include <X11/keysym.h> // ESC
+# include <X11/keysym.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 600
+# define HEIGHT 600
 
 // Map pixel to complex
 typedef struct s_complex
@@ -50,7 +62,7 @@ typedef struct s_fractal
 	t_fractal_type	type;
 	int				max_iter;
 	t_complex		julia_k;	
-} t_fractal;
+}	t_fractal;
 
 typedef struct s_app
 {
@@ -65,11 +77,11 @@ typedef struct s_app
 }	t_app;
 
 /* utils */
-int	exit_error();
-int	ft_strcmp(char *str1, char *str2);
+int			exit_error(void);
+int			ft_strcmp(char *str1, char *str2);
 
 /* parsing */
-int	validate_args(int argc, char **argv, t_app *app);
+int			validate_args(int argc, char **argv, t_app *app);
 
 /* math */
 t_complex	complex_square(t_complex z);
@@ -85,25 +97,20 @@ int			mandelbrot_iter(t_complex c, int max_iter);
 int			julia_iter(t_complex z0, t_complex k, int max_iter);
 
 /* mlx */
-int		app_init_mlx(t_app *app);
-void	app_destroy(t_app *app);
+int			app_init_mlx(t_app *app);
+void		app_destroy(t_app *app);
 
 /* img */
-void	put_pixel(t_img *img, int x, int y, int color);
-int		color_from_iter(int i, int max);
-
-/* render */
-void		render(t_app *app);
-// int		present(t_app *app);
+void		put_pixel(t_img *img, int x, int y, int color);
+int			color_from_iter(int i, int max);
 
 /* events */
-int		init_hooks(t_app *app);
-int		loop_hook(void *param);
+int			init_hooks(t_app *app);
+int			loop_hook(void *param);
 
 /* zoom */
 int			on_mouse(int button, int x, int y, t_app *app);
 void		apply_zoom(t_app *app, t_complex center, double factor);
 int			redraw(t_app *app);
-void		apply_zoom(t_app *app, t_complex center, double factor);
 
 #endif
