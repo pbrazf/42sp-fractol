@@ -59,6 +59,9 @@ typedef struct s_app
 	t_img		img;
 	t_view		view;
 	t_fractal	fractal;
+	int			needs_redraw;
+	int			render_iter;
+	int			refine;
 }	t_app;
 
 /* utils */
@@ -95,6 +98,7 @@ void		render(t_app *app);
 
 /* events */
 int		init_hooks(t_app *app);
+int		loop_hook(void *param);
 
 /* zoom */
 int			on_mouse(int button, int x, int y, t_app *app);

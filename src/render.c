@@ -15,11 +15,11 @@ static void	draw_fractal(t_app *app)
 		{
 			c = pixel_to_complex(x, y, app);
 			if (app->fractal.type == MANDELBROT)
-				i = mandelbrot_iter(c, app->fractal.max_iter);
+				i = mandelbrot_iter(c, app->render_iter);
 			else
-				i = julia_iter(c, app->fractal.julia_k, app->fractal.max_iter);
+				i = julia_iter(c, app->fractal.julia_k, app->render_iter);
 			put_pixel(&app->img, x, y,
-			color_from_iter(i, app->fractal.max_iter));
+				color_from_iter(i, app->render_iter));
 			x++;
 		}
 		y++;
